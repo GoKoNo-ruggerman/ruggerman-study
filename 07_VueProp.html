@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3"></script>
+    <!-- vue@nextだと呼び出しができず、出力されない-->
+
+</head>
+<body>
+    <div id="app1">
+        <ul>
+           <template1 prop1="次へ"></template1>
+           <!--動的-->
+           <!--コロンはv-bind-->
+           <template1 :prop1="varString"></template1>
+        </ul>
+    </div>
+    
+    <!-- Vue.js CDN -->
+    <script>
+        // Vue.jsアプリケーションを作成
+        const App1 = {
+            data() {
+                return {
+                    varString: "Hello!"
+                }
+            },
+        }
+
+        const app = Vue.createApp(App1)
+
+        app.component('template1', {
+            props: ['prop1'],
+            template: `
+                <button>{{prop1}}</button>
+                <br>
+                <!-- brは改行を意味している-->
+            `}
+        )
+
+        app.mount('#app1')
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3"></script>
+    <!-- vue@nextだと呼び出しができず、出力されない-->
+
+</head>
+<body>
+<style>
+    .blue{
+        color: blue;
+    }
+
+    .red{
+        color:red
+    }
+</style>
+    <div id="app1">
+        <ul>
+            <li v-for="todo in todo">
+                {{todo.text}}
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Vue.js CDN -->
+    <script>
+        // Vue.jsアプリケーションを作成
+        const App1 = {
+            data() {
+                return {
+                    todo: [
+                        { text: 'PHP' },
+                        { text: 'Ruby' },
+                        { text: 'Python' },  
+                    ]
+                    
+                }
+            },
+        };
+
+        app1 = Vue.createApp(App1)
+        app1.mount('#app1')
+    </script>
+</body>
+</html>
